@@ -1,2 +1,3 @@
 # Ignorar el archivo de configuración de entorno
 .env
+.env
