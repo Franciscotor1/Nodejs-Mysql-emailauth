@@ -1,0 +1,32 @@
+extends layout/index
+
+block contenido
+    div.py-10
+        h1.text-2xl.my-10.font-extrabold.text-center Bienvenido al Archivo Histórico Municipal de Mazatlán
+            span.font-normal
+        h2.text-center.text-3xl.font-extrabold #{pagina} 
+
+        if errores
+            .mt-8.mx-auto.max-w-md
+                .bg-red-500.text-white.text-center.px-4.py-2.rounded-md.shadow-md
+                    each error in errores
+                        div= error.msg
+
+    .mt-8.mx-auto.max-w-md
+        .bg-gray-100.py-8.px-4.shadow
+            form.space-y-5(method="POST" action="/registro" noValidate)
+                input(type="hidden" name="_csrf" value= csrfToken)
+                div
+                    label.block.text-sm.uppercase.text-blue-600.mb-2.font-bold(for="nombre") Tu Nombre
+                    input#nombre.w-full.px-3.py-2.border-gray-300.rounded-md.placeholder-gray-400(type="text" placeholder="Nombre" name="nombre" value= usuario ? usuario.nombre :'')
+                div
+                    label.block.text-sm.uppercase.text-blue-600.mb-2.font-bold(for="email") E-mail
+                    input#email.w-full.px-3.py-2.border-gray-300.rounded-md.placeholder-gray-400(type="email" placeholder="E-mail" name="email" value= usuario ? usuario.email :'')
+                div
+                    label.block.text-sm.uppercase.text-blue-600.mb-2.font-bold(for="password") Crear Password
+                    input#password.w-full.px-3.py-2.border-gray-300.rounded-md.placeholder-gray-400(type="password" placeholder="Crear Password" name="password")
+                div
+                    label.block.text-sm.uppercase.text-blue-600.mb-2.font-bold(for="repeat_password") Repite tu Password
+                    input#repeat_password.w-full.px-3.py-2.border-gray-300.rounded-md.placeholder-gray-400(type="password" placeholder="Repite tu Password" name="repeat_password")
+                div.mt-4
+                    button.w-full.bg-blue-600.text-white.py-2.px-4.rounded-md.font-bold.cursor-pointer(type="submit") Registrarse

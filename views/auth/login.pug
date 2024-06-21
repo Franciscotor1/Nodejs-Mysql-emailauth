@@ -1,0 +1,22 @@
+extends layout/index
+
+block contenido
+    div.py-10
+        h1.text-2xl.my-10.font-extrabold.text-center Bienvenido al Archivo Histórico Municipal de Mazatlán
+            span.font-normal
+        h2.text-center.text-3xl.font-extrabold #{pagina} Inicia sesión
+    
+    .mt-8.mx-auto.max-w-md
+        .bg-gray-100.py-8.px-4.shadow
+            form
+                div
+                    label.block.text-sm.uppercase.text-blue-600.mb-2.font-bold(for="email") E-mail
+                    input#email.w-full.px-3.py-2.border-gray-300.rounded-md.placeholder-gray-400(type="email" placeholder="E-mail" name="email")
+                div
+                    label.block.text-sm.uppercase.text-blue-600.mb-2.font-bold(for="password") Contraseña
+                    input#password.w-full.px-3.py-2.border-gray-300.rounded-md.placeholder-gray-400(type="password" placeholder="Contraseña" name="password")
+                div.mt-4
+                    button.w-full.bg-blue-600.text-white.py-2.px-4.rounded-md.font-bold.cursor-pointer(type="submit") Iniciar sesión
+            a.block.text-center.text-sm.text-blue-600.mt-4(href="/olvidepassword") Olvidé mi contraseña
+                div.mt-4
+            a.block.text-center.text-sm.text-blue-600.mt-4(href="/registro") Regitrarse
